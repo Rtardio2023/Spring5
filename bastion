@@ -1,0 +1,16 @@
+pipline {
+          agent { label 'bation' }
+            parameters {
+                string defaultValue: '', description: 'nombre del usuario a crear', name: 'USUARIO', trim: true
+                string defaultValue: 'nuevaera2020', description: 'contraseña nueva del usuario a crear', name: 'PASSWORD', trim: true
+            }
+              stage {
+                stage ('creando usuario') {
+                    steps {
+                      script {
+                            bat net user $USUARIO $PASSWORD
+                      }
+                    }
+               } 
+           }
+}
